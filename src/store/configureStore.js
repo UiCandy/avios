@@ -1,7 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 
-import rootSaga from './sagas';
+import rootSaga from 'app/containers/Events/saga';
 import rootReducer from './reducers';
 
 function configureAppStore() {
