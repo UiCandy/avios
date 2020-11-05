@@ -1,0 +1,17 @@
+@keyframes highlight {
+  0% {
+    background: transparent;
+  }
+
+  50% {
+    background: var(--color-background-blue);
+  }
+
+  100% {
+    background: transparent;
+  }
+}
+
+.entryFade {
+  animation: highlight 2s;
+}
