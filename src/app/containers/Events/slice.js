@@ -22,7 +22,7 @@ const events = (state = initialState, action) => {
     case actions.EVENTS_LOADED:
       return {
         ...state,
-        all: action.payload.index,
+        all: action.payload.index ? action.payload.index : [],
         meta: {
           ...state.meta,
           ...action.payload.results,
