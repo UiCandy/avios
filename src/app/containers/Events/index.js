@@ -67,7 +67,7 @@ const Events = () => {
   const handleSelect = event => () => {
     getGeocode({ address: `${event.strasse} ${event.plz}` })
       .then(results => {
-        const locationId = results[0].event_id;
+        const locationId = results[0].place_id;
         updatePlaceId(locationId);
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return getLatLng(results[0]);

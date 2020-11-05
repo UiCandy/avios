@@ -100,9 +100,6 @@ Geo.propTypes = {
   place: PropTypes.shape({
     formatted_address: PropTypes.string.isRequired,
   }).isRequired,
-  placeDetails: PropTypes.shape({
-    formatted_address: PropTypes.string.isRequired,
-  }).isRequired,
   title: PropTypes.string.isRequired,
   placeId: PropTypes.string.isRequired,
   setPlace: PropTypes.func.isRequired,
