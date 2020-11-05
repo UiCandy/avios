@@ -29,7 +29,7 @@ const Loader = ({ loading }) => {
             height: 'auto',
             margin: '0 auto',
           }}
-          alt="Welcome to Hello Fresh"
+          alt="Welcome to Evently"
         />
       </div>
     )
