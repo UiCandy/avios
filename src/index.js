@@ -39,7 +39,7 @@ if (module.hot) {
 }
 
 ConnectedApp.propTypes = {
-  Component: PropTypes.element.isRequired,
+  Component: PropTypes.func.isRequired,
 };
 
 render(App);

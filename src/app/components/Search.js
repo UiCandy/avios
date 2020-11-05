@@ -13,6 +13,7 @@ const style = {
   border: '2px solid #444',
   borderRadius: 4,
   transition: '0.3s all ease-in-out',
+  boxShadow: '2px 3px 2px #e4e4e4',
   '&:focus': {
     borderColor: 'primary',
   },
