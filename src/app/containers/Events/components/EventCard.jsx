@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import PropTypes from 'prop-types';
 import { jsx } from 'theme-ui';
-import { Text, Box } from 'rebass';
+import { Text, Box, Heading } from 'rebass';
 
 const paraStyle = {
   marginY: 0,
@@ -15,10 +15,14 @@ const paraStyle = {
 const headingStyle = {
   fontSize: 3,
   padding: '0 0 4px 0',
-  marginY: 0,
   fontWeight: 700,
+  lineHeight: 1.5,
 };
 
+const dateString = date => {
+  const dateFormat = new Date(date);
+  return dateFormat.toDateString();
+};
 // Given more time, would've been nice to add icons and human readable times/no. of days the event runs, proximity to the location etc.
 
 const EventCard = ({ event }) => {
@@ -34,23 +38,30 @@ const EventCard = ({ event }) => {
         cursor: 'pointer',
       }}
       role="presentation">
-      <section
+      <Box
         role="contentinfo"
         sx={{
           paddingY: 2,
         }}>
-        <h2 sx={headingStyle}>{event.bezeichnung}</h2>
+        <Heading mb={10} sx={headingStyle}>
+          {event.bezeichnung}
+        </Heading>
         <Text mb={2} sx={paraStyle}>
-          {event.veranstalter}
+          {event.veranstalter
+            .split(',')
+            .reduce((all, cur) => [...all, <br />, cur])}
         </Text>
         <Text mb={2}>
-          {event.strasse}, {event.plz}
-          {event.von}, {event.bis}
+          {event.strasse}, {event.plz} <br />
         </Text>
         <Text mb={2} fontWeight="bold">
+          {dateString(event.von)}
+          {event.von !== event.bis ? ` - ${dateString(event.bis)}` : ''}
+        </Text>
+        <Text mb={2} fontWeight="bold" color="secondary">
           {event.bemerkungen}
         </Text>
-      </section>
+      </Box>
     </Box>
   );
 };

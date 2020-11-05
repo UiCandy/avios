@@ -3,7 +3,6 @@ import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 import LoadingAnim from 'app/assets/loader.svg';
-import Image from './Image';
 
 const Loader = ({ loading }) => {
   return (
@@ -22,7 +21,7 @@ const Loader = ({ loading }) => {
           background: '#fff',
           zIndex: 1,
         }}>
-        <Image
+        <img
           src={LoadingAnim}
           sx={{
             width: 200,

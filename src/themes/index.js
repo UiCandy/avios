@@ -8,7 +8,7 @@ const theme = {
     text: '#444',
     background: '#fff',
     primary: '#8c7ae6',
-    secondary: '#c0c',
+    secondary: '#6555b1',
     highlight: '##11e',
     muted: '#f6f6ff',
     modes: {
