@@ -1,20 +1,25 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { ThemeProvider } from 'theme-ui';
 import PropTypes from 'prop-types';
 
-import App from 'App';
+import 'sanitize.css/sanitize.css';
+import theme from 'themes';
 
 import configureAppStore from 'store/configureStore';
+import App from 'App';
 
 const store = configureAppStore();
 const MOUNT_NODE = document.getElementById('root');
 
 const ConnectedApp = ({ Component }) => (
   <Provider store={store}>
-    <React.StrictMode>
-      <Component />
-    </React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <React.StrictMode>
+        <Component />
+      </React.StrictMode>
+    </ThemeProvider>
   </Provider>
 );
 
