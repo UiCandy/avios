@@ -42,3 +42,9 @@ I want to make it clear that I did spend a bit more than 2 hours on the task but
 - Account for empty states
 - Manipulate strings so they can be formatted/styled even though are largely unstructured
 - Map out all the events on map which on hover highlights the respective place, for which I've layed the ground work.
+- Make it accessible via keyboard/screenreaders - it's also something I care about strongly just like design.
+- Add some logging/bug reporting via Sentry
+- Persist queries to a firebase database - so we can analyze which events are most searched for and hence offer an enhancement on the source data by sorting them by popularity/views etc.
+- There is a search api but since the first call returns all the results, opted against having a seperate call to search but if it were searching for events outside of the first result set, for example: Archived or events set far in the future, it's something that can be explored.
+
+- I'll look forward to dig deeper into my solution during the feedback, hope you like it.
