@@ -24,7 +24,7 @@ const theme = {
   },
   fonts: {
     body: '"Source Sans Pro", system-ui, sans-serif',
-    heading: 'Merriweather',
+    heading: 'Rubik',
     monospace: 'Menlo, monospace',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],

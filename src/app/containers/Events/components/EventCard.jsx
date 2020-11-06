@@ -13,7 +13,6 @@ const paraStyle = {
 };
 
 const headingStyle = {
-  fontSize: 3,
   padding: '0 0 4px 0',
   fontWeight: 700,
   lineHeight: 1.5,
