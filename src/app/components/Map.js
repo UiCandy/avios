@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import { functions, isEqual, omit } from 'lodash';
 import React, { useState, useEffect, useRef } from 'react';

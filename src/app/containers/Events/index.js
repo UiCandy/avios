@@ -22,20 +22,20 @@ import { selectEvents, selectLoading } from './selectors';
 const Events = () => {
   const dispatch = useDispatch();
   const events = useSelector(selectEvents);
+  const loading = useSelector(selectLoading);
   const loadEvents = () => {
     if (!events.length) {
       dispatch(actions.loadEvents());
     }
   };
-  const loading = useSelector(selectLoading);
 
   // I would modularize the maps component a bit further since it's muddying up the context of the main events component but for now I've picked a feature packed launch.
   const [location, setLocation] = useState({
-    lat: 52.517619,
-    lng: 13.2334081,
+    lat: 52.5280353,
+    lng: 13.4363934,
   });
   const [title, setTitle] = useState('Berlinale Film Festival');
-  const [placeId, setPlaceId] = useState('ChIJq8puxwJXqEcRsNUtmRuKGg0');
+  const [placeId, setPlaceId] = useState('ChIJ_S5uaxJOqEcRdg-gu1fEgcI');
 
   const [place, setPlace] = useState({
     formatted_address: '',
@@ -55,16 +55,14 @@ const Events = () => {
   const updateMap = coords => {
     setLocation(coords);
   };
-
   const updatePlaceId = id => {
     setPlaceId(id);
   };
-
   const updateTitle = name => {
     setTitle(name);
   };
 
-  const handleSelect = event => () => {
+  const getLocation = event => () => {
     getGeocode({ address: `${event.strasse} ${event.plz}` })
       .then(results => {
         const locationId = results[0].place_id;
@@ -87,6 +85,7 @@ const Events = () => {
     <Fragment>
       <Loader loading={loading} />
       <Geo
+        getLocation={getLocation}
         place={place}
         title={title}
         placeId={placeId}
@@ -107,7 +106,7 @@ const Events = () => {
                   event={event}
                   key={event.id}
                   className={animate.entryFade}
-                  handleSelect={handleSelect}
+                  getLocation={getLocation}
                 />
               </CSSTransition>
             ))}

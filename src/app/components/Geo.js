@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { renderToString } from 'react-dom/server';
 
 import mapStyle from 'app/assets/mapStyle';
+import gps from 'app/assets/gps.png';
 import Map from './Map';
 
 const Template = ({ eventName, placeDetails }) => {
@@ -43,6 +44,9 @@ const Geo = ({ location, setPlace, placeId, title, place }) => {
         position: link.coords,
         animation: window.google.maps.Animation.DROP,
         title: link.title,
+        icon: {
+          url: gps,
+        },
       });
 
       const service = new window.google.maps.places.PlacesService(map);
@@ -55,6 +59,7 @@ const Geo = ({ location, setPlace, placeId, title, place }) => {
           if (status === window.google.maps.places.PlacesServiceStatus.OK) {
             // we can use this info to display richer information in the map's window on click like reviews etc.
             setPlace(results);
+            infoWindow.open(map, marker);
           }
         }
       );

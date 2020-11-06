@@ -25,8 +25,8 @@ const dateString = date => {
 // Given more time, would've been nice to add icons and human readable times/no. of days the event runs,
 // proximity to the location etc. An empty state if no result was found.
 
-const EventCard = ({ event, handleSelect }) => {
-  const handleKeyDown = e => (e.keyCode === 13 ? handleSelect(event) : null);
+const EventCard = ({ event, getLocation }) => {
+  const handleKeyDown = e => (e.keyCode === 13 ? getLocation(event) : null);
   return (
     <Box
       sx={{
@@ -40,7 +40,7 @@ const EventCard = ({ event, handleSelect }) => {
         cursor: 'pointer',
       }}
       onKeyDown={handleKeyDown}
-      onClick={handleSelect(event)}
+      onClick={getLocation(event)}
       role="presentation">
       <Box role="contentinfo">
         <Heading mb={10} sx={headingStyle}>
@@ -90,7 +90,7 @@ EventCard.propTypes = {
     bis: PropTypes.string.isRequired,
     rating: PropTypes.number,
   }).isRequired,
-  handleSelect: PropTypes.func.isRequired,
+  getLocation: PropTypes.func.isRequired,
 };
 
 export default EventCard;
