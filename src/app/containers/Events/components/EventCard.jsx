@@ -1,7 +1,9 @@
 /** @jsx jsx */
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { jsx } from 'theme-ui';
 import { Text, Box, Heading } from 'rebass';
+import 'app/assets/ripple.css';
 
 const paraStyle = {
   marginY: 0,
@@ -26,7 +28,9 @@ const dateString = date => {
 // proximity to the location etc. An empty state if no result was found.
 
 const EventCard = ({ event, getLocation }) => {
+  const [pressed, setPressed] = useState(false);
   const handleKeyDown = e => (e.keyCode === 13 ? getLocation(event) : null);
+  const toggleClass = () => setPressed(!pressed);
   return (
     <Box
       sx={{
@@ -39,6 +43,9 @@ const EventCard = ({ event, getLocation }) => {
         padding: 3,
         cursor: 'pointer',
       }}
+      className={pressed ? 'ripple' : ''}
+      onMouseDown={toggleClass}
+      onMouseUp={toggleClass}
       onKeyDown={handleKeyDown}
       onClick={getLocation(event)}
       role="presentation">
